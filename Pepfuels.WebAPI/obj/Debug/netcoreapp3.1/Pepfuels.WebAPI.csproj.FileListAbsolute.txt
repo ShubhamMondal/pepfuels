@@ -17,3 +17,4 @@ D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.RazorTargetA
 D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.dll
 D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.pdb
 D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.genruntimeconfig.cache
+D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.csprojAssemblyReference.cache
