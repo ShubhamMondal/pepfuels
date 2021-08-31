@@ -24,7 +24,7 @@ namespace Pepfuels.Repository
             return await entities.ToListAsync();
         }
 
-        public async Task<T> Get(long id)
+        public async Task<T> GetbyId(int id)
         {
             return await entities.FindAsync(id);
         }
@@ -47,18 +47,10 @@ namespace Pepfuels.Repository
             await context.SaveChangesAsync();
         }
 
-        public async Task Delete(T entity)
+        public async Task Delete(int id)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
+            T entity = await entities.FindAsync(id);
             entities.Remove(entity);
-            await context.SaveChangesAsync();
-        }
-
-        public async Task SaveChanges()
-        {
             await context.SaveChangesAsync();
         }
     }

@@ -9,10 +9,9 @@ namespace Pepfuels.Repository
     public interface IRepository<T> where T : class
     {
         Task<IList<T>> GetAll();
-        Task<T> Get(long id);
+        Task<T> GetbyId(int id);
         Task Insert(T entity);
         Task Update(T entity);
-        Task Delete(T entity);
-        Task SaveChanges();
+        Task Delete(int id);
     }
 }

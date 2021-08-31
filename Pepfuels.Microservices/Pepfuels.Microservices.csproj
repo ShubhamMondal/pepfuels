@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\" />
+    <ProjectReference Include="..\Pepfuels.DAL\Pepfuels.DAL.csproj" />
+    <ProjectReference Include="..\Pepfuels.Repository\Pepfuels.Repository.csproj" />
   </ItemGroup>
 
 </Project>
