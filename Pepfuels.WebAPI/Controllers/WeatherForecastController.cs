@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,9 +8,11 @@ using System.Threading.Tasks;
 
 namespace Pepfuels.WebAPI.Controllers
 {
+    //[Authorize]
     [ApiController]
-    [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    [Route("api/[controller]/[action]")]
+    [Produces("application/json")]
+    public class WeatherForecastController : Controller
     {
         private static readonly string[] Summaries = new[]
         {

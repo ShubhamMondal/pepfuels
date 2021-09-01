@@ -4,14 +4,14 @@
     "D:\\pepfuels\\Pepfuels.WebAPI\\Pepfuels.WebAPI.csproj": {}
   },
   "projects": {
-    "D:\\pepfuels\\Pepfuels.WebAPI\\Pepfuels.WebAPI.csproj": {
+    "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\pepfuels\\Pepfuels.WebAPI\\Pepfuels.WebAPI.csproj",
-        "projectName": "Pepfuels.WebAPI",
-        "projectPath": "D:\\pepfuels\\Pepfuels.WebAPI\\Pepfuels.WebAPI.csproj",
+        "projectUniqueName": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj",
+        "projectName": "Pepfuels.DAL",
+        "projectPath": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj",
         "packagesPath": "C:\\Users\\Shubam Mondal\\.nuget\\packages\\",
-        "outputPath": "D:\\pepfuels\\Pepfuels.WebAPI\\obj\\",
+        "outputPath": "D:\\pepfuels\\Pepfuels.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -45,8 +45,213 @@
           "dependencies": {
             "Dapper": {
               "target": "Package",
-              "version": "[2.0.78, )"
+              "version": "[2.0.90, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.9, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[5.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\pepfuels\\Pepfuels.Microservices\\Pepfuels.Microservices.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\pepfuels\\Pepfuels.Microservices\\Pepfuels.Microservices.csproj",
+        "projectName": "Pepfuels.Microservices",
+        "projectPath": "D:\\pepfuels\\Pepfuels.Microservices\\Pepfuels.Microservices.csproj",
+        "packagesPath": "C:\\Users\\Shubam Mondal\\.nuget\\packages\\",
+        "outputPath": "D:\\pepfuels\\Pepfuels.Microservices\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Shubam Mondal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
+                "projectPath": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj"
+              },
+              "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj": {
+                "projectPath": "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj",
+        "projectName": "Pepfuels.Repository",
+        "projectPath": "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj",
+        "packagesPath": "C:\\Users\\Shubam Mondal\\.nuget\\packages\\",
+        "outputPath": "D:\\pepfuels\\Pepfuels.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Shubam Mondal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
+                "projectPath": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\pepfuels\\Pepfuels.WebAPI\\Pepfuels.WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\pepfuels\\Pepfuels.WebAPI\\Pepfuels.WebAPI.csproj",
+        "projectName": "Pepfuels.WebAPI",
+        "projectPath": "D:\\pepfuels\\Pepfuels.WebAPI\\Pepfuels.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\Shubam Mondal\\.nuget\\packages\\",
+        "outputPath": "D:\\pepfuels\\Pepfuels.WebAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Shubam Mondal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
+                "projectPath": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj"
+              },
+              "D:\\pepfuels\\Pepfuels.Microservices\\Pepfuels.Microservices.csproj": {
+                "projectPath": "D:\\pepfuels\\Pepfuels.Microservices\\Pepfuels.Microservices.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[3.1.18, )"

@@ -7,3 +7,6 @@ D:\pepfuels\Pepfuels.Repository\obj\Debug\netcoreapp3.1\Pepfuels.Repository.Asse
 D:\pepfuels\Pepfuels.Repository\obj\Debug\netcoreapp3.1\Pepfuels.Repository.csproj.CoreCompileInputs.cache
 D:\pepfuels\Pepfuels.Repository\obj\Debug\netcoreapp3.1\Pepfuels.Repository.dll
 D:\pepfuels\Pepfuels.Repository\obj\Debug\netcoreapp3.1\Pepfuels.Repository.pdb
+D:\pepfuels\Pepfuels.Repository\bin\Debug\netcoreapp3.1\Pepfuels.DAL.dll
+D:\pepfuels\Pepfuels.Repository\bin\Debug\netcoreapp3.1\Pepfuels.DAL.pdb
+D:\pepfuels\Pepfuels.Repository\obj\Debug\netcoreapp3.1\Pepfuels.Repository.csproj.CopyComplete

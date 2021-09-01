@@ -34,4 +34,3 @@ D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.pdb
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.genruntimeconfig.cache
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.csproj.CopyComplete
-D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.csprojAssemblyReference.cache
