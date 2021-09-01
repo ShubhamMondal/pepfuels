@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class TransactionService : ITransaction
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<Transaction> transactionRepository;
-        public TransactionService(pepfuels_dbContext dbContext,
-            IRepository<Transaction> TransactionRepository)
+        public TransactionService(IRepository<Transaction> TransactionRepository)
         {
-            this.dbContext = dbContext;
             this.transactionRepository = TransactionRepository;
         }
 

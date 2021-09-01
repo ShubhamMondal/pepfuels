@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class FinancialYearService : IFinancialYear
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<FinancialYear> financialYearRepository;
-        public FinancialYearService(pepfuels_dbContext dbContext,
-            IRepository<FinancialYear> FinancialYearRepository)
+        public FinancialYearService(IRepository<FinancialYear> FinancialYearRepository)
         {
-            this.dbContext = dbContext;
             this.financialYearRepository = FinancialYearRepository;
         }
 

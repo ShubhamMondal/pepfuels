@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class StateService : IState
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<State> stateRepository;
-        public StateService(pepfuels_dbContext dbContext,
-            IRepository<State> StateRepository)
+        public StateService(IRepository<State> StateRepository)
         {
-            this.dbContext = dbContext;
             this.stateRepository = StateRepository;
         }
 

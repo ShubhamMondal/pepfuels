@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class ItemOrderService : IItemOrder
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<ItemOrder> itemOrderRepository;
-        public ItemOrderService(pepfuels_dbContext dbContext,
-            IRepository<ItemOrder> ItemOrderRepository)
+        public ItemOrderService(IRepository<ItemOrder> ItemOrderRepository)
         {
-            this.dbContext = dbContext;
             this.itemOrderRepository = ItemOrderRepository;
         }
 

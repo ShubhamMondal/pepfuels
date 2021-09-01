@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class ContainerItemService : IContainerItem
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<ContainerItem> containerItemRepository;
-        public ContainerItemService(pepfuels_dbContext dbContext,
-            IRepository<ContainerItem> ContainerItemRepository)
+        public ContainerItemService(IRepository<ContainerItem> ContainerItemRepository)
         {
-            this.dbContext = dbContext;
             this.containerItemRepository = ContainerItemRepository;
         }
 

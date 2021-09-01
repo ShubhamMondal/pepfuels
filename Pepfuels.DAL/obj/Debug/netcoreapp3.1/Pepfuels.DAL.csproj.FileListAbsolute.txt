@@ -1,4 +1,6 @@
 D:\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.deps.json
+D:\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.runtimeconfig.json
+D:\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.runtimeconfig.dev.json
 D:\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.dll
 D:\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.pdb
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.AssemblyInfoInputs.cache
@@ -6,7 +8,5 @@ D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.AssemblyInfo.cs
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.csproj.CoreCompileInputs.cache
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.dll
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.pdb
-D:\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.runtimeconfig.json
-D:\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.runtimeconfig.dev.json
-D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.csprojAssemblyReference.cache
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.genruntimeconfig.cache
+D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.csprojAssemblyReference.cache

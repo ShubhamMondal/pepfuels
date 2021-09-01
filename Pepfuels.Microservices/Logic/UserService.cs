@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class UserService : IUser
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<User> userRepository;
-        public UserService(pepfuels_dbContext dbContext,
-            IRepository<User> UserRepository)
+        public UserService(IRepository<User> UserRepository)
         {
-            this.dbContext = dbContext;
             this.userRepository = UserRepository;
         }
 

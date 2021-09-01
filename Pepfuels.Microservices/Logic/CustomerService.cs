@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class CustomerService : ICustomer
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<Customer> customerRepository;
-        public CustomerService(pepfuels_dbContext dbContext,
-            IRepository<Customer> CustomerRepository)
+        public CustomerService(IRepository<Customer> CustomerRepository)
         {
-            this.dbContext = dbContext;
             this.customerRepository = CustomerRepository;
         }
 

@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class RoleService : IRole
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<Role> roleRepository;
-        public RoleService(pepfuels_dbContext dbContext,
-            IRepository<Role> RoleRepository)
+        public RoleService(IRepository<Role> RoleRepository)
         {
-            this.dbContext = dbContext;
             this.roleRepository = RoleRepository;
         }
 

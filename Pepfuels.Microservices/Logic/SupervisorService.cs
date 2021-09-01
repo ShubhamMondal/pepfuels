@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class SupervisorService : ISupervisor
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<Supervisor> supervisorRepository;
-        public SupervisorService(pepfuels_dbContext dbContext,
-            IRepository<Supervisor> SupervisorRepository)
+        public SupervisorService(IRepository<Supervisor> SupervisorRepository)
         {
-            this.dbContext = dbContext;
             this.supervisorRepository = SupervisorRepository;
         }
 

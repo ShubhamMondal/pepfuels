@@ -8,6 +8,7 @@ D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\bin\Debug\netcoreapp3.1\Pepfuels
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\bin\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.pdb
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\bin\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.Views.dll
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\bin\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.Views.pdb
+D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.csprojAssemblyReference.cache
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.AssemblyInfoInputs.cache
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.AssemblyInfo.cs
 D:\pepfuels\Pepfuels.B2CAdmin\Pepfuels.B2CAdmin\obj\Debug\netcoreapp3.1\Pepfuels.B2CAdmin.csproj.CoreCompileInputs.cache

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Pepfuels.Repository
 {
-    public class Repository<T> : IRepository<T> where T : DbContext
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly pepfuels_dbContext context;
         private DbSet<T> entities;

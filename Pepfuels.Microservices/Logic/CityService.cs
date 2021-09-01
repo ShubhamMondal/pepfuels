@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class CityService : ICity
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<City> cityRepository;
-        public CityService(pepfuels_dbContext dbContext,
-            IRepository<City> CityRepository)
+        public CityService(IRepository<City> CityRepository)
         {
-            this.dbContext = dbContext;
             this.cityRepository = CityRepository;
         }
 

@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class CountryService : ICountry
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<Country> countryRepository;
-        public CountryService(pepfuels_dbContext dbContext,
-            IRepository<Country> CountryRepository)
+        public CountryService(IRepository<Country> CountryRepository)
         {
-            this.dbContext = dbContext;
             this.countryRepository = CountryRepository;
         }
 

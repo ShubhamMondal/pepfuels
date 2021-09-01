@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class ContainerHistoryService : IContainerHistory
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<ContainerHistory> containerHistoryRepository;
-        public ContainerHistoryService(pepfuels_dbContext dbContext,
-            IRepository<ContainerHistory> ContainerHistoryRepository)
+        public ContainerHistoryService(IRepository<ContainerHistory> ContainerHistoryRepository)
         {
-            this.dbContext = dbContext;
             this.containerHistoryRepository = ContainerHistoryRepository;
         }
 

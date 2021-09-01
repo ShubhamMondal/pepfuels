@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class FuelService : IFuel
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<Fuel> fuelRepository;
-        public FuelService(pepfuels_dbContext dbContext,
-            IRepository<Fuel> FuelRepository)
+        public FuelService(IRepository<Fuel> FuelRepository)
         {
-            this.dbContext = dbContext;
             this.fuelRepository = FuelRepository;
         }
 

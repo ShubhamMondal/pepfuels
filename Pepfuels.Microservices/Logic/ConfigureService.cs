@@ -10,12 +10,9 @@ namespace Pepfuels.Microservices.Logic
 {
     public class ConfigureService : IConfigure
     {
-        private readonly pepfuels_dbContext dbContext;
         private readonly IRepository<Configure> configureRepository;
-        public ConfigureService(pepfuels_dbContext dbContext,
-            IRepository<Configure> ConfigureRepository)
+        public ConfigureService(IRepository<Configure> ConfigureRepository)
         {
-            this.dbContext = dbContext;
             this.configureRepository = ConfigureRepository;
         }
 
