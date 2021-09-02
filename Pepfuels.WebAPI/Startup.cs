@@ -37,6 +37,7 @@ namespace Pepfuels.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddControllers()
                 .AddJsonOptions(ops =>
                 {
@@ -46,7 +47,8 @@ namespace Pepfuels.WebAPI
                     ops.JsonSerializerOptions.DictionaryKeyPolicy = JsonNamingPolicy.CamelCase;
                     ops.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
                 });
-            services.AddDbContext<pepfuels_dbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DatabaseConnection")));
+            var connection = Configuration.GetConnectionString("DatabaseConnection");
+            services.AddDbContext<pepfuels_dbContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IConfigure, ConfigureService>();
             services.AddTransient<ICountry, CountryService>();
@@ -77,22 +79,22 @@ namespace Pepfuels.WebAPI
             });
 
             //JWT
-            //services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
-            //{
-            //    options.RequireHttpsMetadata = false;
-            //    options.SaveToken = true;
-            //    options.TokenValidationParameters = new TokenValidationParameters()
-            //    {
-            //        ValidateIssuer = true,
-            //        ValidateAudience = true,
-            //        ValidAudience = Configuration["Jwt:Audience"],
-            //        ValidIssuer = Configuration["Jwt:Issuer"],
-            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
-            //        ValidateLifetime = false,
-            //        ClockSkew = TimeSpan.Zero
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+            {
+                options.RequireHttpsMetadata = false;
+                options.SaveToken = true;
+                options.TokenValidationParameters = new TokenValidationParameters()
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidAudience = Configuration["Jwt:Audience"],
+                    ValidIssuer = Configuration["Jwt:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"])),
+                    ValidateLifetime = false,
+                    ClockSkew = TimeSpan.Zero
 
-            //    };
-            //});
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

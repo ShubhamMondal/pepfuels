@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Pepfuels.DAL.Models;
 using System.Linq;
 using System.Threading.Tasks;
+using Pepfuels.Repository.Helpers;
 
 namespace Pepfuels.Repository
 {
@@ -21,7 +22,7 @@ namespace Pepfuels.Repository
         }
         public async Task<IList<T>> GetAll()
         {
-            return await entities.ToListAsync();
+            return await entities.WhereIsNotDeleted().ToListAsync();
         }
 
         public async Task<T> GetbyId(int id)

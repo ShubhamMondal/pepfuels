@@ -74,3 +74,5 @@ D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.csproj.CopyC
 D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.dll
 D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.pdb
 D:\pepfuels\Pepfuels.WebAPI\obj\Debug\netcoreapp3.1\Pepfuels.WebAPI.genruntimeconfig.cache
+D:\pepfuels\Pepfuels.WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\pepfuels\Pepfuels.WebAPI\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
