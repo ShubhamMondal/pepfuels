@@ -23,7 +23,15 @@ namespace Pepfuels.Microservices.Logic
         }
         public async Task<IList<State>> GetAll()
         {
-            return await stateRepository.GetAll();
+            try
+            {
+                return await stateRepository.GetAll();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         #endregion
 

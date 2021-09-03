@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj": {}
+    "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj": {}
   },
   "projects": {
-    "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
+    "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj",
+        "projectUniqueName": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj",
         "projectName": "Pepfuels.DAL",
-        "projectPath": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj",
-        "packagesPath": "C:\\Users\\Shubam Mondal\\.nuget\\packages\\",
-        "outputPath": "D:\\pepfuels\\Pepfuels.DAL\\obj\\",
+        "projectPath": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj",
+        "packagesPath": "C:\\Users\\mayank.sisodia\\.nuget\\packages\\",
+        "outputPath": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Shubam Mondal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mayank.sisodia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,11 +25,10 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://pkgs.dev.azure.com/communitybrandsANP/netForum_Enterprise_Scrum/_packaging/mynfe/nuget/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -41,7 +40,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
@@ -76,29 +74,35 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj": {
+    "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj",
+        "projectUniqueName": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj",
         "projectName": "Pepfuels.Repository",
-        "projectPath": "D:\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj",
-        "packagesPath": "C:\\Users\\Shubam Mondal\\.nuget\\packages\\",
-        "outputPath": "D:\\pepfuels\\Pepfuels.Repository\\obj\\",
+        "projectPath": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.Repository\\Pepfuels.Repository.csproj",
+        "packagesPath": "C:\\Users\\mayank.sisodia\\.nuget\\packages\\",
+        "outputPath": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Shubam Mondal\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mayank.sisodia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -106,14 +110,13 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://pkgs.dev.azure.com/communitybrandsANP/netForum_Enterprise_Scrum/_packaging/mynfe/nuget/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
-                "projectPath": "D:\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj"
+              "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj": {
+                "projectPath": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.DAL\\Pepfuels.DAL.csproj"
               }
             }
           }
@@ -126,7 +129,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -137,12 +139,18 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.2, 3.1.2]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

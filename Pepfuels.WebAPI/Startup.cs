@@ -52,6 +52,7 @@ namespace Pepfuels.WebAPI
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IConfigure, ConfigureService>();
             services.AddTransient<ICountry, CountryService>();
+            services.AddTransient<IState, StateService>();
 
             services.AddSwaggerGen(options =>
             {

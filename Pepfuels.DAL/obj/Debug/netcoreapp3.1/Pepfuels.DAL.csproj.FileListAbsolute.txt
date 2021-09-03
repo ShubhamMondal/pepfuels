@@ -10,3 +10,15 @@ D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.dll
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.pdb
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.genruntimeconfig.cache
 D:\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.csprojAssemblyReference.cache
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.deps.json
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.runtimeconfig.json
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.runtimeconfig.dev.json
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.dll
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\bin\Debug\netcoreapp3.1\Pepfuels.DAL.pdb
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.csprojAssemblyReference.cache
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.AssemblyInfoInputs.cache
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.AssemblyInfo.cs
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.csproj.CoreCompileInputs.cache
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.dll
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.pdb
+D:\Pepfuels\Mobile App\pepfuels\ShubhamMondal\pepfuels\Pepfuels.DAL\obj\Debug\netcoreapp3.1\Pepfuels.DAL.genruntimeconfig.cache

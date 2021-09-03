@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Qpy4LwXk/GWVtnVigrBQ8o+90foQnCSp6xdhBVe++/YUR97/di/11nz1EktutLKQQ4Cxliz4JZRRFlZTlpnpVA==",
+  "dgSpecHash": "3nftdu5q3Dr122cmw5pC7swXcf8vAKbV2FqI1mdOiJDzaej2Mk8N63QxtzypRpo3aIAF+q/FIVyEugPGlDTDqg==",
   "success": true,
-  "projectFilePath": "D:\\pepfuels\\Pepfuels.B2CAdmin\\Pepfuels.B2CAdmin\\Pepfuels.B2CAdmin.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Pepfuels\\Mobile App\\pepfuels\\ShubhamMondal\\pepfuels\\Pepfuels.B2CAdmin\\Pepfuels.B2CAdmin\\Pepfuels.B2CAdmin.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\mayank.sisodia\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }
