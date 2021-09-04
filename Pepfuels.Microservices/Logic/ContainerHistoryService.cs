@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class ContainerHistoryService : IContainerHistory
+    public class ContainerHistoryService : Repository<ContainerHistory>, IContainerHistory
     {
-        private readonly IRepository<ContainerHistory> containerHistoryRepository;
-        public ContainerHistoryService(IRepository<ContainerHistory> ContainerHistoryRepository)
+        public ContainerHistoryService(pepfuels_dbContext context)
+       : base(context)
         {
-            this.containerHistoryRepository = ContainerHistoryRepository;
         }
 
         #region Get Methods
-        public async Task<ContainerHistory> GetbyId(int id)
+        public async Task<IEnumerable<ContainerHistory>> GetList()
         {
-            return await containerHistoryRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.ContainerHistoryId)
+            .ToListAsync();
         }
-        public async Task<IList<ContainerHistory>> GetAll()
+        public async Task<ContainerHistory> GetById(int id)
         {
-            return await containerHistoryRepository.GetAll();
+            return await GetByCondition(c => c.ContainerHistoryId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(ContainerHistory oContainerHistory)
+        public async Task save(ContainerHistory oContainerHistory)
         {
-            await containerHistoryRepository.Insert(oContainerHistory);
+            Insert(oContainerHistory);
+            await SaveAsync();
         }
-        public async Task Update(ContainerHistory oContainerHistory)
+        public async Task update(ContainerHistory oContainerHistory)
         {
-            await containerHistoryRepository.Update(oContainerHistory);
+            Update(oContainerHistory);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(ContainerHistory oContainerHistory)
         {
-            await containerHistoryRepository.Delete(id);
+            Delete(oContainerHistory);
+            await SaveAsync();
         }
         #endregion
     }

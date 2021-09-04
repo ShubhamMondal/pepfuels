@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class FuelService : IFuel
+    public class FuelService : Repository<Fuel>, IFuel
     {
-        private readonly IRepository<Fuel> fuelRepository;
-        public FuelService(IRepository<Fuel> FuelRepository)
+        public FuelService(pepfuels_dbContext context)
+      : base(context)
         {
-            this.fuelRepository = FuelRepository;
         }
 
         #region Get Methods
-        public async Task<Fuel> GetbyId(int id)
+        public async Task<IEnumerable<Fuel>> GetList()
         {
-            return await fuelRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.FuelId)
+            .ToListAsync();
         }
-        public async Task<IList<Fuel>> GetAll()
+        public async Task<Fuel> GetById(int id)
         {
-            return await fuelRepository.GetAll();
+            return await GetByCondition(c => c.FuelId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(Fuel oFuel)
+        public async Task save(Fuel oFuel)
         {
-            await fuelRepository.Insert(oFuel);
+            Insert(oFuel);
+            await SaveAsync();
         }
-        public async Task Update(Fuel oFuel)
+        public async Task update(Fuel oFuel)
         {
-            await fuelRepository.Update(oFuel);
+            Update(oFuel);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(Fuel oFuel)
         {
-            await fuelRepository.Delete(id);
+            Delete(oFuel);
+            await SaveAsync();
         }
         #endregion
     }

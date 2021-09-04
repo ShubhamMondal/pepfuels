@@ -9,6 +9,7 @@ using Pepfuels.DAL.Models;
 using System.Net;
 using Pepfuels.DAL.Entity.Models;
 using AutoMapper;
+using Pepfuels.Microservices;
 
 namespace Pepfuels.WebAPI.Controllers
 {
@@ -35,7 +36,7 @@ namespace Pepfuels.WebAPI.Controllers
             try
             {
                 List<Country_VM> lstCountry = new List<Country_VM>();
-                lstCountry = _mapper.Map<List<Country_VM>>(await _ICountry.GetAll());
+                lstCountry = _mapper.Map<List<Country_VM>>(await _ICountry.GetList());
                 return Ok(lstCountry);
             }
             catch (Exception ex)

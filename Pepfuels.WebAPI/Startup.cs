@@ -49,7 +49,7 @@ namespace Pepfuels.WebAPI
                 });
             var connection = Configuration.GetConnectionString("DatabaseConnection");
             services.AddDbContext<pepfuels_dbContext>(options => options.UseMySql(connection, ServerVersion.AutoDetect(connection)));
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddTransient<IConfigure, ConfigureService>();
             services.AddTransient<ICountry, CountryService>();
             services.AddTransient<IState, StateService>();

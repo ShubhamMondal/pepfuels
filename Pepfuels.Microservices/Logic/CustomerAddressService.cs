@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class CustomerAddressService : ICustomerAddress
+    public class CustomerAddressService : Repository<CustomerAddress>, ICustomerAddress
     {
-        private readonly IRepository<CustomerAddress> customerAddressRepository;
-        public CustomerAddressService(IRepository<CustomerAddress> CustomerAddressRepository)
+        public CustomerAddressService(pepfuels_dbContext context)
+  : base(context)
         {
-            this.customerAddressRepository = CustomerAddressRepository;
         }
 
         #region Get Methods
-        public async Task<CustomerAddress> GetbyId(int id)
+        public async Task<IEnumerable<CustomerAddress>> GetList()
         {
-            return await customerAddressRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.CustomerAddressId)
+            .ToListAsync();
         }
-        public async Task<IList<CustomerAddress>> GetAll()
+        public async Task<CustomerAddress> GetById(int id)
         {
-            return await customerAddressRepository.GetAll();
+            return await GetByCondition(c => c.CustomerAddressId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(CustomerAddress oCustomerAddress)
+        public async Task save(CustomerAddress oCustomerAddress)
         {
-            await customerAddressRepository.Insert(oCustomerAddress);
+            Insert(oCustomerAddress);
+            await SaveAsync();
         }
-        public async Task Update(CustomerAddress oCustomerAddress)
+        public async Task update(CustomerAddress oCustomerAddress)
         {
-            await customerAddressRepository.Update(oCustomerAddress);
+            Update(oCustomerAddress);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(CustomerAddress oCustomerAddress)
         {
-            await customerAddressRepository.Delete(id);
+            Delete(oCustomerAddress);
+            await SaveAsync();
         }
         #endregion
     }

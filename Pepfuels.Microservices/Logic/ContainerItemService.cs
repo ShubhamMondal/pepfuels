@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class ContainerItemService : IContainerItem
+    public class ContainerItemService : Repository<ContainerItem>, IContainerItem
     {
-        private readonly IRepository<ContainerItem> containerItemRepository;
-        public ContainerItemService(IRepository<ContainerItem> ContainerItemRepository)
+        public ContainerItemService(pepfuels_dbContext context)
+     : base(context)
         {
-            this.containerItemRepository = ContainerItemRepository;
         }
 
         #region Get Methods
-        public async Task<ContainerItem> GetbyId(int id)
+        public async Task<IEnumerable<ContainerItem>> GetList()
         {
-            return await containerItemRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.ContainerItemId)
+            .ToListAsync();
         }
-        public async Task<IList<ContainerItem>> GetAll()
+        public async Task<ContainerItem> GetById(int id)
         {
-            return await containerItemRepository.GetAll();
+            return await GetByCondition(c => c.ContainerItemId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(ContainerItem oContainerItem)
+        public async Task save(ContainerItem oContainerItem)
         {
-            await containerItemRepository.Insert(oContainerItem);
+            Insert(oContainerItem);
+            await SaveAsync();
         }
-        public async Task Update(ContainerItem oContainerItem)
+        public async Task update(ContainerItem oContainerItem)
         {
-            await containerItemRepository.Update(oContainerItem);
+            Update(oContainerItem);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(ContainerItem oContainerItem)
         {
-            await containerItemRepository.Delete(id);
+            Delete(oContainerItem);
+            await SaveAsync();
         }
         #endregion
     }

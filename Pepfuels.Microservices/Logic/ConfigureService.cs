@@ -5,40 +5,39 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class ConfigureService : IConfigure
+    public class ConfigureService : Repository<Configure>, IConfigure
     {
-        private readonly IRepository<Configure> configureRepository;
-        public ConfigureService(IRepository<Configure> ConfigureRepository)
+        public ConfigureService(pepfuels_dbContext context)
+        : base(context)
         {
-            this.configureRepository = ConfigureRepository;
         }
 
         #region Get Methods
-        public async Task<Configure> GetbyId(int id)
+        public Configure GetFirstRow()
         {
-            return await configureRepository.GetbyId(id);
-        }
-        public async Task<IList<Configure>> GetAll()
-        {
-            return await configureRepository.GetAll();
+            return GetFirst();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(Configure oConfigure)
+        public async Task save(Configure oConfigure)
         {
-            await configureRepository.Insert(oConfigure);
+            Insert(oConfigure);
+            await SaveAsync();
         }
-        public async Task Update(Configure oConfigure)
+        public async Task update(Configure oConfigure)
         {
-            await configureRepository.Update(oConfigure);
+            Update(oConfigure);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(Configure oConfigure)
         {
-            await configureRepository.Delete(id);
+            Delete(oConfigure);
+            await SaveAsync();
         }
         #endregion
     }

@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Pepfuels.Microservices.Interface
 {
-    public interface IFinancialYear : IRepository<FinancialYear>
+    public interface IFinancialYear
     {
+        Task<IEnumerable<FinancialYear>> GetList();
+        Task<FinancialYear> GetById(int id);
+        Task save(FinancialYear FinancialYear);
+        Task update(FinancialYear FinancialYear);
+        Task delete(FinancialYear FinancialYear);
     }
 }

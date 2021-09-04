@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class SupervisorService : ISupervisor
+    public class SupervisorService : Repository<Supervisor>, ISupervisor
     {
-        private readonly IRepository<Supervisor> supervisorRepository;
-        public SupervisorService(IRepository<Supervisor> SupervisorRepository)
+        public SupervisorService(pepfuels_dbContext context)
+             : base(context)
         {
-            this.supervisorRepository = SupervisorRepository;
         }
 
         #region Get Methods
-        public async Task<Supervisor> GetbyId(int id)
+        public async Task<IEnumerable<Supervisor>> GetList()
         {
-            return await supervisorRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.SupervisorId)
+            .ToListAsync();
         }
-        public async Task<IList<Supervisor>> GetAll()
+        public async Task<Supervisor> GetById(int id)
         {
-            return await supervisorRepository.GetAll();
+            return await GetByCondition(c => c.SupervisorId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(Supervisor oSupervisor)
+        public async Task save(Supervisor oSupervisor)
         {
-            await supervisorRepository.Insert(oSupervisor);
+            Insert(oSupervisor);
+            await SaveAsync();
         }
-        public async Task Update(Supervisor oSupervisor)
+        public async Task update(Supervisor oSupervisor)
         {
-            await supervisorRepository.Update(oSupervisor);
+            Update(oSupervisor);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(Supervisor oSupervisor)
         {
-            await supervisorRepository.Delete(id);
+            Delete(oSupervisor);
+            await SaveAsync();
         }
         #endregion
     }

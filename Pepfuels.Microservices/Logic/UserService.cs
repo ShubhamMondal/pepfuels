@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class UserService : IUser
+    public class UserService : Repository<User>, IUser
     {
-        private readonly IRepository<User> userRepository;
-        public UserService(IRepository<User> UserRepository)
+        public UserService(pepfuels_dbContext context)
+          : base(context)
         {
-            this.userRepository = UserRepository;
         }
 
         #region Get Methods
-        public async Task<User> GetbyId(int id)
+        public async Task<IEnumerable<User>> GetList()
         {
-            return await userRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.UserId)
+            .ToListAsync();
         }
-        public async Task<IList<User>> GetAll()
+        public async Task<User> GetById(int id)
         {
-            return await userRepository.GetAll();
+            return await GetByCondition(c => c.UserId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(User oUser)
+        public async Task save(User oTransaction)
         {
-            await userRepository.Insert(oUser);
+            Insert(oTransaction);
+            await SaveAsync();
         }
-        public async Task Update(User oUser)
+        public async Task update(User oTransaction)
         {
-            await userRepository.Update(oUser);
+            Update(oTransaction);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(User oTransaction)
         {
-            await userRepository.Delete(id);
+            Delete(oTransaction);
+            await SaveAsync();
         }
         #endregion
     }

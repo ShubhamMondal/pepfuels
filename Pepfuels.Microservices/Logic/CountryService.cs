@@ -5,48 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class CountryService : ICountry
+    public class CountryService : Repository<Country>, ICountry
     {
-        private readonly IRepository<Country> countryRepository;
-        public CountryService(IRepository<Country> CountryRepository)
+        public CountryService(pepfuels_dbContext context)
+    : base(context)
         {
-            this.countryRepository = CountryRepository;
         }
 
         #region Get Methods
-        public async Task<Country> GetbyId(int id)
+        public async Task<IEnumerable<Country>> GetList()
         {
-            return await countryRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.CountryId)
+            .ToListAsync();
         }
-        public async Task<IList<Country>> GetAll()
+        public async Task<Country> GetById(int id)
         {
-            try
-            {
-                return await countryRepository.GetAll();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            return await GetByCondition(c => c.CountryId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(Country oCountry)
+        public async Task save(Country oCountry)
         {
-            await countryRepository.Insert(oCountry);
+            Insert(oCountry);
+            await SaveAsync();
         }
-        public async Task Update(Country oCountry)
+        public async Task update(Country oCountry)
         {
-            await countryRepository.Update(oCountry);
+            Update(oCountry);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(Country oCountry)
         {
-            await countryRepository.Delete(id);
+            Delete(oCountry);
+            await SaveAsync();
         }
         #endregion
     }

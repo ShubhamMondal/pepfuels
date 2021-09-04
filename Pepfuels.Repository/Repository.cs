@@ -6,53 +6,48 @@ using Pepfuels.DAL.Models;
 using System.Linq;
 using System.Threading.Tasks;
 using Pepfuels.Repository.Helpers;
+using System.Linq.Expressions;
 
 namespace Pepfuels.Repository
 {
-    public class Repository<T> : IRepository<T> where T : class
+    public abstract class Repository<T> : IRepository<T> where T : class
     {
-        private readonly pepfuels_dbContext context;
-        private DbSet<T> entities;
-        string errorMessage = string.Empty;
-
+        protected pepfuels_dbContext context { get; set; }
         public Repository(pepfuels_dbContext context)
         {
             this.context = context;
-            entities = context.Set<T>();
         }
-        public async Task<IList<T>> GetAll()
+        public T GetFirst()
         {
-            return await entities.WhereIsNotDeleted().ToListAsync();
+            return this.context.Set<T>().FirstOrDefault();
         }
-
-        public async Task<T> GetbyId(int id)
+        public IQueryable<T> GetAll()
         {
-            return await entities.FindAsync(id);
-        }
-        public async Task Insert(T entity)
-        {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-            entities.Add(entity);
-            await context.SaveChangesAsync();
+            return this.context.Set<T>().WhereIsNotDeleted().AsNoTracking();
         }
 
-        public async Task Update(T entity)
+        public IQueryable<T> GetByCondition(Expression<Func<T, bool>> expression)
         {
-            if (entity == null)
-            {
-                throw new ArgumentNullException("entity");
-            }
-            await context.SaveChangesAsync();
+            return this.context.Set<T>()
+                .Where(expression).AsNoTracking();
+        }
+        public void Insert(T entity)
+        {
+            this.context.Set<T>().Add(entity);
         }
 
-        public async Task Delete(int id)
+        public void Update(T entity)
         {
-            T entity = await entities.FindAsync(id);
-            entities.Remove(entity);
-            await context.SaveChangesAsync();
+            this.context.Set<T>().Update(entity);
+        }
+
+        public void Delete(T entity)
+        {
+            this.context.Set<T>().Remove(entity);
+        }
+        public async Task SaveAsync()
+        {
+            await this.context.SaveChangesAsync();
         }
     }
 }

@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Pepfuels.Microservices.Interface
 {
-    public interface IContainerHistory : IRepository<ContainerHistory>
+    public interface IContainerHistory
     {
+        Task<IEnumerable<ContainerHistory>> GetList();
+        Task<ContainerHistory> GetById(int id);
+        Task save(ContainerHistory ContainerHistory);
+        Task update(ContainerHistory ContainerHistory);
+        Task delete(ContainerHistory ContainerHistory);
     }
 }

@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class ContainerService : IContainer
+    public class ContainerService : Repository<Container>, IContainer
     {
-        private readonly IRepository<Container> containerRepository;
-        public ContainerService(IRepository<Container> ContainerRepository)
+        public ContainerService(pepfuels_dbContext context)
+     : base(context)
         {
-            this.containerRepository = ContainerRepository;
         }
 
         #region Get Methods
-        public async Task<Container> GetbyId(int id)
+        public async Task<IEnumerable<Container>> GetList()
         {
-            return await containerRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.ContainerId)
+            .ToListAsync();
         }
-        public async Task<IList<Container>> GetAll()
+        public async Task<Container> GetById(int id)
         {
-            return await containerRepository.GetAll();
+            return await GetByCondition(c => c.ContainerId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(Container oContainer)
+        public async Task save(Container oContainer)
         {
-            await containerRepository.Insert(oContainer);
+            Insert(oContainer);
+            await SaveAsync();
         }
-        public async Task Update(Container oContainer)
+        public async Task update(Container oContainer)
         {
-            await containerRepository.Update(oContainer);
+            Update(oContainer);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(Container oContainer)
         {
-            await containerRepository.Delete(id);
+            Delete(oContainer);
+            await SaveAsync();
         }
         #endregion
     }

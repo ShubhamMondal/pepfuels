@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class FinancialYearService : IFinancialYear
+    public class FinancialYearService : Repository<FinancialYear>, IFinancialYear
     {
-        private readonly IRepository<FinancialYear> financialYearRepository;
-        public FinancialYearService(IRepository<FinancialYear> FinancialYearRepository)
+        public FinancialYearService(pepfuels_dbContext context)
+       : base(context)
         {
-            this.financialYearRepository = FinancialYearRepository;
         }
 
         #region Get Methods
-        public async Task<FinancialYear> GetbyId(int id)
+        public async Task<IEnumerable<FinancialYear>> GetList()
         {
-            return await financialYearRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.FinancialYearId)
+            .ToListAsync();
         }
-        public async Task<IList<FinancialYear>> GetAll()
+        public async Task<FinancialYear> GetById(int id)
         {
-            return await financialYearRepository.GetAll();
+            return await GetByCondition(c => c.FinancialYearId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(FinancialYear oFinancialYear)
+        public async Task save(FinancialYear oFinancialYear)
         {
-            await financialYearRepository.Insert(oFinancialYear);
+            Insert(oFinancialYear);
+            await SaveAsync();
         }
-        public async Task Update(FinancialYear oFinancialYear)
+        public async Task update(FinancialYear oFinancialYear)
         {
-            await financialYearRepository.Update(oFinancialYear);
+            Update(oFinancialYear);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(FinancialYear oFinancialYear)
         {
-            await financialYearRepository.Delete(id);
+            Delete(oFinancialYear);
+            await SaveAsync();
         }
         #endregion
     }

@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class RoleService : IRole
+    public class RoleService : Repository<Role>, IRole
     {
-        private readonly IRepository<Role> roleRepository;
-        public RoleService(IRepository<Role> RoleRepository)
+        public RoleService(pepfuels_dbContext context) 
+            : base(context)
         {
-            this.roleRepository = RoleRepository;
         }
 
         #region Get Methods
-        public async Task<Role> GetbyId(int id)
+        public async Task<IEnumerable<Role>> GetList()
         {
-            return await roleRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.RoleId)
+            .ToListAsync();
         }
-        public async Task<IList<Role>> GetAll()
+        public async Task<Role> GetById(int id)
         {
-            return await roleRepository.GetAll();
+            return await GetByCondition(c => c.RoleId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(Role oRole)
+        public async Task save(Role oRole)
         {
-            await roleRepository.Insert(oRole);
+            Insert(oRole);
+            await SaveAsync();
         }
-        public async Task Update(Role oRole)
+        public async Task update(Role oRole)
         {
-            await roleRepository.Update(oRole);
+            Update(oRole);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(Role oRole)
         {
-            await roleRepository.Delete(id);
+            Delete(oRole);
+            await SaveAsync();
         }
         #endregion
     }

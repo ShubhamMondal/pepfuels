@@ -35,7 +35,7 @@ namespace Pepfuels.WebAPI.Controllers
             try
             {
                 List<State_VM> lstState = new List<State_VM>();
-                lstState = _mapper.Map<List<State_VM>>(await _IState.GetAll());
+                lstState = _mapper.Map<List<State_VM>>(await _IState.GetList());
                 return Ok(lstState);
             }
             catch (Exception ex)
@@ -47,12 +47,13 @@ namespace Pepfuels.WebAPI.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(State_VM), (int)HttpStatusCode.OK)]
+        [Route("{id}")]
         public async Task<IActionResult> getStateById(int id)
         {
             try
             {
                 State_VM stateDetails = new State_VM();
-                stateDetails = _mapper.Map<State_VM>(await _IState.GetbyId(id));
+                stateDetails = _mapper.Map<State_VM>(await _IState.GetById(id));
                 return Ok(stateDetails);
             }
             catch (Exception ex)

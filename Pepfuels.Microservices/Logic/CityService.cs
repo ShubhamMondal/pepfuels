@@ -5,40 +5,52 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class CityService : ICity
+    public class CityService : Repository<City>, ICity
     {
-        private readonly IRepository<City> cityRepository;
-        public CityService(IRepository<City> CityRepository)
+        public CityService(pepfuels_dbContext context)
+       : base(context)
         {
-            this.cityRepository = CityRepository;
         }
 
         #region Get Methods
-        public async Task<City> GetbyId(int id)
+        public async Task<IEnumerable<City>> GetList()
         {
-            return await cityRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.CityId)
+            .ToListAsync();
         }
-        public async Task<IList<City>> GetAll()
+        public async Task<City> GetById(int id)
         {
-            return await cityRepository.GetAll();
+            return await GetByCondition(c => c.CityId.Equals(id))
+            .FirstOrDefaultAsync();
+        }
+        public async Task<IEnumerable<City>> getByStateId(int id)
+        {
+            return await GetByCondition(c => c.StateId.Equals(id))
+            .ToListAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(City oCity)
+        public async Task save(City oCity)
         {
-            await cityRepository.Insert(oCity);
+            Insert(oCity);
+            await SaveAsync();
         }
-        public async Task Update(City oCity)
+        public async Task update(City oCity)
         {
-            await cityRepository.Update(oCity);
+            Update(oCity);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(City oCity)
         {
-            await cityRepository.Delete(id);
+            Delete(oCity);
+            await SaveAsync();
         }
         #endregion
     }

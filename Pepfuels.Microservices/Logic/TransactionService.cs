@@ -5,40 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class TransactionService : ITransaction
+    public class TransactionService : Repository<Transaction>, ITransaction
     {
-        private readonly IRepository<Transaction> transactionRepository;
-        public TransactionService(IRepository<Transaction> TransactionRepository)
+        public TransactionService(pepfuels_dbContext context)
+            : base(context)
         {
-            this.transactionRepository = TransactionRepository;
         }
 
         #region Get Methods
-        public async Task<Transaction> GetbyId(int id)
+        public async Task<IEnumerable<Transaction>> GetList()
         {
-            return await transactionRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.TransactionId)
+            .ToListAsync();
         }
-        public async Task<IList<Transaction>> GetAll()
+        public async Task<Transaction> GetById(int id)
         {
-            return await transactionRepository.GetAll();
+            return await GetByCondition(c => c.TransactionId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(Transaction oTransaction)
+        public async Task save(Transaction oTransaction)
         {
-            await transactionRepository.Insert(oTransaction);
+            Insert(oTransaction);
+            await SaveAsync();
         }
-        public async Task Update(Transaction oTransaction)
+        public async Task update(Transaction oTransaction)
         {
-            await transactionRepository.Update(oTransaction);
+            Update(oTransaction);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(Transaction oTransaction)
         {
-            await transactionRepository.Delete(id);
+            Delete(oTransaction);
+            await SaveAsync();
         }
         #endregion
     }

@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Pepfuels.Microservices.Interface
 {
-    public interface IState: IRepository<State>
+    public interface IState
     {
+        Task<IEnumerable<State>> GetList();
+        Task<State> GetById(int id);
+        Task save(State State);
+        Task update(State State);
+        Task delete(State State);
     }
 }

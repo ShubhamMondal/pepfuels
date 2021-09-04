@@ -5,48 +5,47 @@ using Pepfuels.DAL.Models;
 using Pepfuels.Repository;
 using Pepfuels.Microservices.Interface;
 using System.Threading.Tasks;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace Pepfuels.Microservices.Logic
 {
-    public class StateService : IState
+    public class StateService : Repository<State>, IState
     {
-        private readonly IRepository<State> stateRepository;
-        public StateService(IRepository<State> StateRepository)
+        public StateService(pepfuels_dbContext context)
+            : base(context)
         {
-            this.stateRepository = StateRepository;
         }
 
         #region Get Methods
-        public async Task<State> GetbyId(int id)
+        public async Task<IEnumerable<State>> GetList()
         {
-            return await stateRepository.GetbyId(id);
+            return await GetAll()
+            .OrderByDescending(ow => ow.StateId)
+            .ToListAsync();
         }
-        public async Task<IList<State>> GetAll()
+        public async Task<State> GetById(int id)
         {
-            try
-            {
-                return await stateRepository.GetAll();
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
+            return await GetByCondition(c => c.StateId.Equals(id))
+            .FirstOrDefaultAsync();
         }
         #endregion
 
         #region Crud Operations
-        public async Task Insert(State oState)
+        public async Task save(State oState)
         {
-            await stateRepository.Insert(oState);
+            Insert(oState);
+            await SaveAsync();
         }
-        public async Task Update(State oState)
+        public async Task update(State oState)
         {
-            await stateRepository.Update(oState);
+            Update(oState);
+            await SaveAsync();
         }
-        public async Task Delete(int id)
+        public async Task delete(State oState)
         {
-            await stateRepository.Delete(id);
+            Delete(oState);
+            await SaveAsync();
         }
         #endregion
     }
